@@ -21,7 +21,7 @@ public class CriaBanco extends SQLiteOpenHelper {
     public static final String TEMPORADAS = "temporadas";
     public static final String EPISODIOS = "episodios";
     public static final String IMAGEM = "thumb";
-    public static final int VERSAO = 3;
+    public static final int VERSAO = 9;
 
     public CriaBanco(Context context){
         super(context, NOME_BANCO,null,VERSAO);
