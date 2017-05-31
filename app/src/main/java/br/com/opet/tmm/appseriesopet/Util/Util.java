@@ -1,4 +1,4 @@
-package br.com.opet.tmm.appseriesopet;
+package br.com.opet.tmm.appseriesopet.Util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

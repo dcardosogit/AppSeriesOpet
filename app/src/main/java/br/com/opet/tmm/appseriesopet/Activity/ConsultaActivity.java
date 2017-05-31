@@ -1,4 +1,4 @@
-package br.com.opet.tmm.appseriesopet;
+package br.com.opet.tmm.appseriesopet.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import br.com.opet.tmm.appseriesopet.Util.BancoUtil;
+import br.com.opet.tmm.appseriesopet.DAO.SerieDAO;
+import br.com.opet.tmm.appseriesopet.R;
+
 public class ConsultaActivity extends Activity {
 
     private ListView lista;
@@ -17,23 +21,17 @@ public class ConsultaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
 
-        BancoController crud = new BancoController(getBaseContext());
+        SerieDAO crud = new SerieDAO(getBaseContext());
         final Cursor cursor = crud.carregaDados();
 
-        String[] nomeCampos = new String[] {CriaBanco.ID, CriaBanco.TITULO,CriaBanco.EPISODIOS};
+        String[] nomeCampos = new String[] {BancoUtil.ID_SERIE, BancoUtil.TITULO_SERIE,BancoUtil.EPISODIOS_SERIE};
         int[] idViews = new int[] {R.id.idSerie, R.id.nomeSerie,R.id.tempSerie};
 
-        /*
-         * Questão 12: O que é um SimpleCursorAdapter? Existem outros tipos de Cursores?
-         * */
         SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(),
                 R.layout.series_layout,cursor,nomeCampos,idViews, 0);
         lista = (ListView)findViewById(R.id.listView);
         lista.setAdapter(adaptador);
 
-        /*
-         * Questão 13: Explique o parâmetro da função setOnItemCLickListener. Que tipo de parametro é este?
-         * */
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             /*
@@ -42,7 +40,7 @@ public class ConsultaActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String codigo;
                 cursor.moveToPosition(position);
-                codigo = cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.ID));
+                codigo = cursor.getString(cursor.getColumnIndexOrThrow(BancoUtil.ID_SERIE));
                 Intent intent = new Intent(ConsultaActivity.this, AlterarActivity.class);
                 intent.putExtra("codigo", codigo);
                 startActivity(intent);

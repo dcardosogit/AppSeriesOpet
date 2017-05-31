@@ -1,4 +1,4 @@
-package br.com.opet.tmm.appseriesopet;
+package br.com.opet.tmm.appseriesopet.Model;
 
 /**
  * Created by Diego on 10/05/2017.

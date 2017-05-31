@@ -1,4 +1,4 @@
-package br.com.opet.tmm.appseriesopet;
+package br.com.opet.tmm.appseriesopet.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +13,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
+
+import br.com.opet.tmm.appseriesopet.DAO.SerieDAO;
+import br.com.opet.tmm.appseriesopet.Model.Serie;
+import br.com.opet.tmm.appseriesopet.R;
+import br.com.opet.tmm.appseriesopet.Util.Util;
 
 public class InsereActivity extends Activity {
     final int ACTIVITY_SELECT_IMAGE = 1234;
@@ -38,13 +42,10 @@ public class InsereActivity extends Activity {
             }
         });
 
-        /*
-         * Questão 11: O que são Listeners? Em quais casos eles são utilizados?.
-         * */
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BancoController crud = new BancoController(getBaseContext());
+                SerieDAO crud = new SerieDAO(getBaseContext());
                 EditText titulo = (EditText)findViewById(R.id.editText);
                 EditText temporadas = (EditText)findViewById((R.id.editText2));
                 EditText episodios = (EditText)findViewById(R.id.editText3);

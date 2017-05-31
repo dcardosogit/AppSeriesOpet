@@ -1,11 +1,10 @@
-package br.com.opet.tmm.appseriesopet;
+package br.com.opet.tmm.appseriesopet.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -16,6 +15,12 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import br.com.opet.tmm.appseriesopet.Util.BancoUtil;
+import br.com.opet.tmm.appseriesopet.DAO.SerieDAO;
+import br.com.opet.tmm.appseriesopet.Model.Serie;
+import br.com.opet.tmm.appseriesopet.R;
+import br.com.opet.tmm.appseriesopet.Util.Util;
+
 public class AlterarActivity extends Activity {
 
     EditText serie;
@@ -25,7 +30,7 @@ public class AlterarActivity extends Activity {
     Button alterar;
     Button deletar;
     Cursor cursor;
-    BancoController crud;
+    SerieDAO crud;
     String codigo;
     final int ACTIVITY_SELECT_IMAGE = 1234;
     @Override
@@ -35,7 +40,7 @@ public class AlterarActivity extends Activity {
 
         codigo = this.getIntent().getStringExtra("codigo");
 
-        crud = new BancoController(getBaseContext());
+        crud = new SerieDAO(getBaseContext());
 
         serie = (EditText)findViewById(R.id.editText4);
         temporadas = (EditText)findViewById(R.id.editText5);
@@ -45,10 +50,10 @@ public class AlterarActivity extends Activity {
         alterar = (Button)findViewById(R.id.button2);
 
         cursor = crud.carregaDadoById(Integer.parseInt(codigo));
-        serie.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.TITULO)));
-        temporadas.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.TEMPORADAS)));
-        episodios.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.EPISODIOS)));
-        poster.setImageBitmap(Util.Base64toImage(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.IMAGEM))));
+        serie.setText(cursor.getString(cursor.getColumnIndexOrThrow(BancoUtil.TITULO_SERIE)));
+        temporadas.setText(cursor.getString(cursor.getColumnIndexOrThrow(BancoUtil.TEMPORADAS_SERIE)));
+        episodios.setText(cursor.getString(cursor.getColumnIndexOrThrow(BancoUtil.EPISODIOS_SERIE)));
+        poster.setImageBitmap(Util.Base64toImage(cursor.getString(cursor.getColumnIndexOrThrow(BancoUtil.IMAGEM_SERIE))));
 
         poster.setOnClickListener(new View.OnClickListener() {
             @Override
