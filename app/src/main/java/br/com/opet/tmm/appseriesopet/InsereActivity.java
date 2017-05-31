@@ -2,20 +2,41 @@ package br.com.opet.tmm.appseriesopet;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-public class InsereActivity extends Activity {
+import java.io.IOException;
 
+public class InsereActivity extends Activity {
+    final int ACTIVITY_SELECT_IMAGE = 1234;
+    ImageView imageView;
+    String base64Image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insere);
-
+        base64Image = null;
         Button botao = (Button)findViewById(R.id.button);
+        imageView = (ImageView) findViewById(R.id.imageView);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent,"Selecione a Imagem"),ACTIVITY_SELECT_IMAGE);
+            }
+        });
 
         /*
          * Questão 11: O que são Listeners? Em quais casos eles são utilizados?.
@@ -30,10 +51,11 @@ public class InsereActivity extends Activity {
                 String tituloString = titulo.getText().toString();
                 int temporadasInt = Integer.parseInt(temporadas.getText().toString());
                 int episodiosInt =  Integer.parseInt(episodios.getText().toString());
+                String imagemString = Util.ImagetoBase64 (((BitmapDrawable)imageView.getDrawable()).getBitmap());
                 String resultado;
 
                 Serie serie = new Serie(tituloString,temporadasInt,episodiosInt);
-
+                serie.setImagem(imagemString);
                 resultado = crud.insereDado(serie);
 
                 Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
@@ -42,5 +64,26 @@ public class InsereActivity extends Activity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+
+        if(requestCode == ACTIVITY_SELECT_IMAGE){
+            if(resultCode == Activity.RESULT_OK){
+                if(data != null){
+                    try{
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),data.getData());
+                        imageView.setImageBitmap(bitmap);
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }else if(resultCode == Activity.RESULT_CANCELED){
+                    Toast.makeText(getApplicationContext(), "Cancelado.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
     }
 }

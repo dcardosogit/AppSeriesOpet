@@ -9,6 +9,7 @@ public class Serie {
     private String titulo;
     private int temporadas;
     private int episodios;
+    private String imagem;
 
     public Serie() {
     }
@@ -49,5 +50,13 @@ public class Serie {
 
     public void setEpisodios(int episodios) {
         this.episodios = episodios;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 }

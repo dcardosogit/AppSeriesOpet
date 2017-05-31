@@ -20,8 +20,8 @@ public class ConsultaActivity extends Activity {
         BancoController crud = new BancoController(getBaseContext());
         final Cursor cursor = crud.carregaDados();
 
-        String[] nomeCampos = new String[] {CriaBanco.ID, CriaBanco.TITULO};
-        int[] idViews = new int[] {R.id.idSerie, R.id.nomeSerie};
+        String[] nomeCampos = new String[] {CriaBanco.ID, CriaBanco.TITULO,CriaBanco.EPISODIOS};
+        int[] idViews = new int[] {R.id.idSerie, R.id.nomeSerie,R.id.tempSerie};
 
         /*
          * Questão 12: O que é um SimpleCursorAdapter? Existem outros tipos de Cursores?

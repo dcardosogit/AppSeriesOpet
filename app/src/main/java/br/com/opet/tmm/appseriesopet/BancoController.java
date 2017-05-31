@@ -43,7 +43,7 @@ public class BancoController {
 
     public Cursor carregaDados(){
         Cursor cursor;
-        String[] campos =  {banco.ID,banco.TITULO};
+        String[] campos =  {banco.ID,banco.TITULO,banco.EPISODIOS};
         db = banco.getReadableDatabase();
         /*
          * Questão 7: Expique os parâmetros da função query do SQLiteDatabase. O que ela retorna?

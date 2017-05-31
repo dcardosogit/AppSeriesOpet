@@ -20,12 +20,12 @@ public class CriaBanco extends SQLiteOpenHelper {
     public static final String TITULO = "titulo";
     public static final String TEMPORADAS = "temporadas";
     public static final String EPISODIOS = "episodios";
-    public static final int VERSAO = 2;
+    public static final String IMAGEM = "thumb";
+    public static final int VERSAO = 3;
 
     public CriaBanco(Context context){
         super(context, NOME_BANCO,null,VERSAO);
     }
-
 
     /*
     * Questão 2: O que é a classe SQLiteDatabase?
@@ -38,7 +38,8 @@ public class CriaBanco extends SQLiteOpenHelper {
                 + ID + " integer primary key autoincrement,"
                 + TITULO + " text,"
                 + TEMPORADAS + " integer,"
-                + EPISODIOS + " integer"
+                + EPISODIOS + " integer,"
+                + IMAGEM + " text"
                 +")";
         db.execSQL(sql);
     }

@@ -1,19 +1,19 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:columnCount="2"
     android:rowCount="2" >
 
 
     <TextView
         android:id="@+id/idSerie"
-        android:layout_width="0dip"
+        android:layout_width="match_parent"
         android:layout_gravity="fill_horizontal"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="ID" />
-
     <TextView
         android:id="@+id/nomeSerie"
         android:layout_width="wrap_content"
@@ -21,5 +21,12 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:text="TITULO" />
+    <TextView
+        android:id="@+id/tempSerie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="TEMP" />
 
-</GridLayout>
+</LinearLayout>
