@@ -11,16 +11,25 @@
     tools:context="br.com.opet.tmm.appseriesopet.Activity.DashBoardActivity">
 
     <Button
-        android:id="@+id/inserirButton"
-        android:onClick="inserir"
+        android:id="@+id/inserirSerieButton"
+        android:onClick="inserirSerie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar" />
+        android:text="Cadastrar Serie" />
 
     <Button
-        android:layout_below="@+id/inserirButton"
-        android:onClick="listar"
+        android:layout_below="@+id/inserirSerieButton"
+        android:id="@+id/listarSerieButton"
+        android:onClick="listarSerie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Listar" />
+
+    <Button
+        android:layout_below="@+id/listarSerieButton"
+        android:id="@+id/inserirCategoriaButton"
+        android:onClick="inserirCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nova Categoria" />
 </RelativeLayout>

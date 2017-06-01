@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    tools:context="br.com.opet.tmm.appseriesopet.Activity.InsereActivity"
+    tools:context="br.com.opet.tmm.appseriesopet.Activity.InsereSerieActivity"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Titulo:"
-            android:id="@+id/textView"
+            android:id="@+id/textTituloSerie"
         />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_below="@+id/textView"
+            android:id="@+id/editTituloSerie"
+            android:layout_below="@+id/textTituloSerie"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
@@ -48,8 +48,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Temporadas:"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/editText"
+            android:id="@+id/textTemporadasSerie"
+            android:layout_below="@+id/editTituloSerie"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="51dp" />
@@ -57,20 +57,20 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
-            android:layout_below="@+id/textView2"
+            android:id="@+id/editTemporadasSerie"
+            android:layout_below="@+id/textTemporadasSerie"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/editText"
-            android:layout_alignEnd="@+id/editText" />
+            android:layout_alignRight="@+id/editTituloSerie"
+            android:layout_alignEnd="@+id/editTituloSerie" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Episodios:"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/editText2"
+            android:id="@+id/TextEpisodiosSeries"
+            android:layout_below="@+id/editTemporadasSerie"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="64dp" />
@@ -78,24 +78,37 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
-            android:layout_below="@+id/textView3"
+            android:id="@+id/editEpisodiosSeries"
+            android:layout_below="@+id/TextEpisodiosSeries"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/editText2"
-            android:layout_alignEnd="@+id/editText2" />
+            android:layout_alignRight="@+id/editTemporadasSerie"
+            android:layout_alignEnd="@+id/editTemporadasSerie" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerCategoria"
+            android:layout_below="@+id/editEpisodiosSeries"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:layout_alignRight="@+id/editEpisodiosSeries"
+            android:layout_alignEnd="@+id/editEpisodiosSeries"
+            >
+        </Spinner>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cadastrar"
             android:id="@+id/button"
-            android:layout_below="@+id/editText3"
+            android:layout_below="@+id/spinnerCategoria"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="72dp"
-            android:layout_alignRight="@+id/editText3"
-            android:layout_alignEnd="@+id/editText3" />
+            android:layout_marginTop="40dp"
+            android:layout_alignRight="@+id/spinnerCategoria"
+            android:layout_alignEnd="@+id/spinnerCategoria" />
 
 
 

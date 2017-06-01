@@ -21,7 +21,7 @@ import br.com.opet.tmm.appseriesopet.Model.Serie;
 import br.com.opet.tmm.appseriesopet.R;
 import br.com.opet.tmm.appseriesopet.Util.Util;
 
-public class AlterarActivity extends Activity {
+public class AlterarSerieActivity extends Activity {
 
     EditText serie;
     EditText temporadas;
@@ -36,7 +36,7 @@ public class AlterarActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alterar);
+        setContentView(R.layout.activity_alterar_serie);
 
         codigo = this.getIntent().getStringExtra("codigo");
 
@@ -75,7 +75,7 @@ public class AlterarActivity extends Activity {
                 serieObj.setEpisodios(Integer.parseInt(episodios.getText().toString()));
                 serieObj.setImagem(Util.ImagetoBase64 (((BitmapDrawable)poster.getDrawable()).getBitmap()));
                 crud.alteraRegistro(serieObj);
-                Intent intent = new Intent(AlterarActivity.this,ConsultaActivity.class);
+                Intent intent = new Intent(AlterarSerieActivity.this,ConsultaSerieActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -86,7 +86,7 @@ public class AlterarActivity extends Activity {
             @Override
             public void onClick(View v) {
                 crud.deletaRegistro(Integer.parseInt(codigo));
-                Intent intent = new Intent(AlterarActivity.this,ConsultaActivity.class);
+                Intent intent = new Intent(AlterarSerieActivity.this,ConsultaSerieActivity.class);
                 startActivity(intent);
                 finish();
             }

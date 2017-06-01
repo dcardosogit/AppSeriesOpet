@@ -13,13 +13,13 @@ import br.com.opet.tmm.appseriesopet.Util.BancoUtil;
 import br.com.opet.tmm.appseriesopet.DAO.SerieDAO;
 import br.com.opet.tmm.appseriesopet.R;
 
-public class ConsultaActivity extends Activity {
+public class ConsultaSerieActivity extends Activity {
 
     private ListView lista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta);
+        setContentView(R.layout.activity_consulta_serie);
 
         SerieDAO crud = new SerieDAO(getBaseContext());
         final Cursor cursor = crud.carregaDados();
@@ -41,7 +41,7 @@ public class ConsultaActivity extends Activity {
                 String codigo;
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(BancoUtil.ID_SERIE));
-                Intent intent = new Intent(ConsultaActivity.this, AlterarActivity.class);
+                Intent intent = new Intent(ConsultaSerieActivity.this, AlterarSerieActivity.class);
                 intent.putExtra("codigo", codigo);
                 startActivity(intent);
                 finish();

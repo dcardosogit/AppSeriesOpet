@@ -15,9 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.InsereActivity" />
-        <activity android:name=".Activity.ConsultaActivity" />
-        <activity android:name=".Activity.AlterarActivity"></activity>
+        <activity android:name=".Activity.InsereSerieActivity" />
+        <activity android:name=".Activity.ConsultaSerieActivity" />
+        <activity android:name=".Activity.AlterarSerieActivity" />
+        <activity android:name=".Activity.InsereCategoriaActivity"></activity>
     </application>
 
 </manifest>

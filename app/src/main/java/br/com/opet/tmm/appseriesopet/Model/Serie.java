@@ -10,14 +10,17 @@ public class Serie {
     private int temporadas;
     private int episodios;
     private String imagem;
+    private Categoria categoria;
 
     public Serie() {
+        categoria = new Categoria();
     }
 
     public Serie(String titulo, int temporadas, int episodios) {
         this.titulo = titulo;
         this.temporadas = temporadas;
         this.episodios = episodios;
+        categoria = new Categoria();
     }
 
     public int get_ID() {
@@ -58,5 +61,13 @@ public class Serie {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

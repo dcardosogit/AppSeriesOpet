@@ -15,13 +15,18 @@ public class DashBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dash_board);
     }
 
-    public void inserir(View v){
-        Intent intent = new Intent(DashBoardActivity.this,InsereActivity.class);
+    public void inserirSerie(View v){
+        Intent intent = new Intent(DashBoardActivity.this,InsereSerieActivity.class);
         startActivity(intent);
     }
 
-    public void listar(View v){
-        Intent intent = new Intent(DashBoardActivity.this,ConsultaActivity.class);
+    public void listarSerie(View v){
+        Intent intent = new Intent(DashBoardActivity.this,ConsultaSerieActivity.class);
+        startActivity(intent);
+    }
+
+    public void inserirCategoria(View v){
+        Intent intent = new Intent(DashBoardActivity.this,InsereCategoriaActivity.class);
         startActivity(intent);
     }
 }
